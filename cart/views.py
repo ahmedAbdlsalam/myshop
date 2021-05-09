@@ -5,7 +5,6 @@ from .cart import Cart
 from .forms import CartAddProductForm
 
 
-
 @require_POST
 def cart_add(request, product_id):
     cart = Cart(request)
@@ -33,4 +32,5 @@ def cart_detail(request):
         item['update_quantity_form'] = CartAddProductForm(initial={
             'quantity': item['quantity'],
             'override': True})
+
     return render(request, 'cart/detail.html', {'cart': cart})
